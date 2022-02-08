@@ -70,8 +70,8 @@ def load_data(city, month, day):
     df['hour'] = df['Start Time'].dt.hour
     df['Trip Duration'] = pd.to_numeric(df['Trip Duration'])
 
-    month=month.lower()
-    day=day.lower()
+    month = month.lower()
+    day = day.lower()
     
     if month != 'all':
         month = MONTH_INPUT_MAP[month]
