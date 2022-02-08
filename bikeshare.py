@@ -2,7 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 
-CITY_DATA = { 'chicago': 'chicago.csv',
+CITY_DATA_FILES = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
@@ -24,7 +24,7 @@ def get_filters():
     # Get user input for city (chicago, new york city, washington).
     while True:
         city=input("Enter name of city: ")
-        if city.lower() in CITY_DATA:
+        if city.lower() in CITY_DATA_FILES:
             print(f"Filtering for city {city}.")
             break
         else:
@@ -62,7 +62,7 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    df = pd.read_csv(CITY_DATA[city.lower()])
+    df = pd.read_csv(CITY_DATA_FILES[city.lower()])
 
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
